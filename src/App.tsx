@@ -7,6 +7,10 @@ function App() {
   const [centreId, setCentreId] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const url = import.meta.env.PROD
+    ? "https://hrslip.onrender.com/api/exam-slips"
+    : `http://localhost:3000/api/exam-slips`;
+
   const generatePDF = async () => {
     if (!centreId.trim()) {
       alert("Please enter a centre ID.");
