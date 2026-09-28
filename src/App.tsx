@@ -20,6 +20,8 @@ function App() {
         ? "https://hrslip.onrender.com/api/exam-slips"
         : `http://localhost:3000/api/exam-slips`;
 
+      console.log(baseRoute);
+
       const response = await fetch(baseRoute, {
         method: "POST",
         headers: {
