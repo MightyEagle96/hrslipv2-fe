@@ -30,14 +30,14 @@ function App() {
         }),
       });
 
-      const data = await response.json();
+      // const data = await response.json();
 
-      if (!response.ok || !data.success) {
+      if (!response.ok) {
         throw new Error("Centre ID not found");
         //throw new Error("Centew " || "Unable to generate PDF.");
       }
 
-      console.log(data);
+      //console.log(data);
 
       const blob = await response.blob();
 
