@@ -30,9 +30,14 @@ function App() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Unable to generate PDF.");
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        throw new Error("Centre ID not found");
+        //throw new Error("Centew " || "Unable to generate PDF.");
       }
+
+      console.log(data);
 
       const blob = await response.blob();
 
@@ -53,7 +58,7 @@ function App() {
       window.URL.revokeObjectURL(url);
     } catch (err) {
       console.error(err);
-      alert("Something went wrong.");
+      alert(err || "Unable to generate PDF.");
     } finally {
       setLoading(false);
     }
